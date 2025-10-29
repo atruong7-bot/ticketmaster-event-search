@@ -27,28 +27,6 @@ DEPLOYED HERE: https://homework2-474822.wl.r.appspot.com/
 
 ---
 
-## Setup
-1. Clone the repo  
-   ```bash
-   git clone <repo-url>
-   cd event-finder
-   ```
-2. Install dependencies  
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Add your API keys in `config.py` (Ticketmaster, Google, IPInfo)
-4. Run locally  
-   ```bash
-   python main.py
-   ```
-   Then open `http://localhost:8080`
-5. Deploy to GCP  
-   ```bash
-   gcloud app deploy
-   ```
-
----
 
 ## Project Structure
 ```
