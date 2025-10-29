@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Development
+.git/
+.gitignore
+instructions.txt
+rubric.txt
+.vscode/
+.env
+
+# OS
+.DS_Store
+*.log

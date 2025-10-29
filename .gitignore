@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+app.yaml
+.DS_Store
+instructions.txt
+rubric.txt
+*.log
+.vscode/
+process_log.txt

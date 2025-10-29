@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Search</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Events Search</h1>
+
+      <!-- Search Form -->
+      <form id="searchForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="keyword">Keyword <span class="required">*</span></label>
+            <input type="text" id="keyword" name="keyword" required />
+            <div class="error-tooltip" id="keyword-error">
+              Please fill out this field.
+            </div>
+          </div>
+        </div>
+
+        <!-- Distance row (own line) -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="distance">Distance(miles)</label>
+            <input
+              type="number"
+              id="distance"
+              name="distance"
+              placeholder="10"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="category"
+              >Category <span class="required">*</span></label
+            >
+            <select id="category" name="category">
+              <option value="Default">Default</option>
+              <option value="Music">Music</option>
+              <option value="Sports">Sports</option>
+              <option value="Arts & Theatre">Arts & Theatre</option>
+              <option value="Film">Film</option>
+              <option value="Miscellaneous">Miscellaneous</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row" id="locationRow">
+          <div class="form-group">
+            <div class="label-with-checkbox">
+              <label for="location"
+                >Location <span class="required">*</span></label
+              >
+              <div class="checkbox-group">
+                <input type="checkbox" id="autoDetect" name="autoDetect" />
+                <label for="autoDetect">Auto-detect my location</label>
+              </div>
+            </div>
+
+            <input type="text" id="location" name="location" required />
+            <div class="error-tooltip" id="location-error">
+              Please fill out this field.
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" id="searchBtn">SEARCH</button>
+          <button type="button" id="clearBtn">CLEAR</button>
+        </div>
+      </form>
+
+      <!-- Loading indicator -->
+      <div id="loadingSpinner" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+      </div>
+
+      <!-- Results table -->
+      <div id="resultsContainer" class="results-container hidden">
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Icon</th>
+              <th class="sortable" data-sort="event">Event</th>
+              <th class="sortable" data-sort="genre">Genre</th>
+              <th class="sortable" data-sort="venue">Venue</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+
+      <!-- No results message -->
+      <div id="noResults" class="no-results hidden">
+        <p>No records found</p>
+      </div>
+
+      <!-- Event details card -->
+      <div id="eventDetails" class="event-details hidden">
+        <!-- Event details will be populated here -->
+      </div>
+
+      <!-- Show Venue Details Button -->
+      <button
+        id="venueToggleBtn"
+        class="venue-text-toggle hidden"
+        onclick="toggleVenueDetails(currentVenueName)"
+      >
+        Show Venue Details
+        <div class="chevron">&#9662;</div>
+        <!-- ▼ chevron -->
+      </button>
+
+      <!-- Venue details card -->
+      <div id="venueDetails" class="venue-details hidden">
+        <!-- Venue details will be populated here -->
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
